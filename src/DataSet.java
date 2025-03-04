@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DataSet {
 
@@ -8,43 +7,52 @@ public class DataSet {
 
 
     public DataSet() {
-        this.data = new ArrayList<Integer>();
+        //sets data size to 30 by default
+        generateData(30);
 
     }
 
 
+    public void generateData(int value) {
 
-    //getters
+        //try catch needed
+        if(value > 50){
+            System.out.println("Array size to big");
+            return;
+        }
+        for (int i = 0; i < value; i++) {
+            //currently generates random numbers to 10
+            int randomNum = (int) (Math.random() * 50);
+            data.add(randomNum);
 
-    public ArrayList<Integer> getData(){
+        }
+
+    }
+
+
+    public Integer getarraySize(){
+        return data.size();
+
+    }
+
+    public ArrayList<Integer> getArray(){
         return this.data;
 
     }
 
 
-    // setters
-    public void generateData(int value) {
-        for (int i = 0; i < value; i++) {
-            int randomNum = (int) (Math.random() * 10);
-            data.add(randomNum);
-
-        }
-    }
-
-    public void Printdata(){
-        for(int iterator : this.data){
-            System.out.println(iterator);
-        }
 
 
 
-    }
-
-
+//    public static void main(String[] args) {
+//    DataSet test = new DataSet();
+//
+//    test.generateData(20);
+//
+//    System.out.println(test.data);
+//
+//    }
 
 
 }
-
-
-
 
